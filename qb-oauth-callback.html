@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion QuickBooks — MAA Gestion</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">MAA Gestion</a>
+  </div>
+</header>
+
+<main class="legal">
+  <h1>Connexion à QuickBooks...</h1>
+  <p id="msg">Redirection vers MAA Gestion en cours — cette fenêtre se ferme automatiquement.</p>
+  <noscript>
+    <div class="placeholder">JavaScript est requis pour compléter la connexion. Activez JavaScript et rechargez cette page, ou retournez dans MAA Gestion et réessayez.</div>
+  </noscript>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Groupe Gestion MAA (MAA Gestion). Tous droits réservés.</span>
+  </div>
+</footer>
+
+<script>
+  // MAA Gestion est une app de bureau : Intuit n'autorise pas
+  // http://localhost comme URI de redirection en production (seulement en
+  // sandbox), donc cette page publique reçoit le retour d'Intuit ici, puis
+  // relaie IMMÉDIATEMENT vers le petit serveur local que l'app a démarré
+  // sur ce même ordinateur (voir Services/QuickBooksService.cs, LocalPort).
+  // C'est le NAVIGATEUR DU CLIENT qui fait cette deuxième requête, pas ce
+  // serveur web — il peut donc atteindre localhost sans problème.
+  var LOCAL_PORT = 51728;
+  var params = window.location.search; // déjà "?code=...&state=...&realmId=..."
+  if (params) {
+    window.location.replace("http://localhost:" + LOCAL_PORT + "/callback/" + params);
+  } else {
+    document.getElementById("msg").textContent = "Aucune information de connexion reçue — retournez dans MAA Gestion et réessayez.";
+  }
+</script>
+</body>
+</html>
