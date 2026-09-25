@@ -15,6 +15,44 @@
   });
 })();
 
+// Page Tarifs : le site est statique (GitHub Pages, aucun serveur pour
+// recevoir un formulaire), donc la "soumission" ouvre un courriel déjà
+// rempli dans la messagerie du visiteur plutôt que d'envoyer quoi que ce
+// soit elle-même.
+(function () {
+  var form = document.getElementById("quote-form");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var modules = Array.prototype.map.call(
+      form.querySelectorAll('input[name="module"]:checked'),
+      function (cb) { return "- " + cb.value; }
+    );
+    var company = document.getElementById("q-company").value.trim();
+    var users = parseInt(document.getElementById("q-users").value, 10);
+    var message = document.getElementById("q-message").value.trim().replace(/\r?\n/g, "\r\n");
+
+    var lines = [
+      "Bonjour,",
+      "",
+      "J'aimerais recevoir une soumission pour MAA Gestion.",
+      "",
+      "Entreprise : " + (company || "(à préciser)"),
+      "Nombre d'utilisateurs : " + (users > 0 ? users : "(à préciser)"),
+      "",
+      "Modules souhaités :"
+    ];
+    lines = lines.concat(modules.length ? modules : ["- À déterminer ensemble"]);
+    if (message) lines.push("", "Précisions :", message);
+    lines.push("", "Merci!");
+
+    var subject = "Demande de soumission - MAA Gestion" + (company ? " (" + company + ")" : "");
+    window.location.href = "mailto:alexandrepoupart@ggestionmaa.com"
+      + "?subject=" + encodeURIComponent(subject)
+      + "&body=" + encodeURIComponent(lines.join("\r\n"));
+  });
+})();
+
 // Affiche le numéro de la dernière version disponible sur la page de
 // téléchargement (purement informatif) — le bouton de téléchargement
 // lui-même pointe vers une URL stable ("/releases/latest/download/...")
