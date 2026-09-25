@@ -4,16 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conditions d'utilisation — MAA Gestion</title>
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="header-inner">
-    <a class="logo" href="index.html">MAA Gestion</a>
-    <nav>
-      <a href="privacy.html">Confidentialité</a>
-      <a href="terms.html">Conditions d'utilisation</a>
+    <a class="brand" href="index.html">
+      <svg class="brand-badge" width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="gHeader" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#276B62"/><stop offset="1" stop-color="#153729"/></linearGradient></defs>
+        <rect width="40" height="40" rx="11" fill="url(#gHeader)"/>
+        <text x="20" y="27" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="21" fill="#F8F4E8" text-anchor="middle">M</text>
+        <circle cx="32.5" cy="7.5" r="3.1" fill="#D9A441"/>
+      </svg>
+      <span class="brand-word"><b>MAA</b><span> Gestion</span></span>
+    </a>
+    <nav class="main-nav">
+      <a class="nav-link" href="index.html">Accueil</a>
+      <a class="nav-link" href="fonctionnalites.html">Fonctionnalités</a>
+      <a class="nav-link" href="telecharger.html">Téléchargement</a>
+      <a class="nav-link" href="contact.html">Nous joindre</a>
     </nav>
+    <div class="header-actions">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a class="btn btn-primary" href="telecharger.html">Télécharger</a>
+    </div>
   </div>
 </header>
 
@@ -60,10 +80,41 @@
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <span>© 2026 Groupe Gestion MAA (MAA Gestion). Tous droits réservés.</span>
-    <span><a href="index.html">Retour à l'accueil</a></span>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <svg class="brand-badge" width="32" height="32" viewBox="0 0 40 40" aria-hidden="true">
+          <defs><linearGradient id="gFooter" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#276B62"/><stop offset="1" stop-color="#153729"/></linearGradient></defs>
+          <rect width="40" height="40" rx="11" fill="url(#gFooter)"/>
+          <text x="20" y="27" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="21" fill="#F8F4E8" text-anchor="middle">M</text>
+          <circle cx="32.5" cy="7.5" r="3.1" fill="#D9A441"/>
+        </svg>
+        <span class="brand-word"><b>MAA</b><span> Gestion</span></span>
+      </a>
+      <p>Logiciel de gestion tout-en-un pour la PME : clients, véhicules, employés, inventaire, comptabilité et projets, avec saisie assistée par intelligence artificielle.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Produit</h4>
+      <a href="fonctionnalites.html">Fonctionnalités</a>
+      <a href="telecharger.html">Téléchargement</a>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <a href="contact.html">Nous joindre</a>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="terms.html">Conditions d'utilisation</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-inner">
+      <span>© 2026 Groupe Gestion MAA (MAA Gestion). Tous droits réservés.</span>
+      <span><a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a></span>
+    </div>
   </div>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
