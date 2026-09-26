@@ -2,18 +2,21 @@
    Palette et typographie reprises telles quelles du logiciel (voir
    GestionApp/Theme/Colors.xaml et Theme/Fonts.xaml) : papier ivoire + encre
    pin ("Atelier"), Fraunces pour les titres. Un seul thème (clair, chaleureux)
-   — c'est le vrai visuel du produit, pas une palette générique. */
+   — c'est le vrai visuel du produit, pas une palette générique.
+   Palette « vive » depuis le 2026-09-26 (demandé explicitement : « plus de
+   couleurs vives, plus joyeux, moderne mais professionnel ») : sarcelle, or,
+   terre cuite, brique et prune plus franches, mêmes valeurs que le logiciel. */
 
 :root {
   --accent: #1F4D3A;
   --accent-dark: #153729;
   --accent-soft: #DFEEE3;
-  --teal: #276B62;
+  --teal: #1E8577;
   --gold: #D9A441;
-  --gold-ink: #8A6110;
-  --terracotta: #C1651F;
-  --brick: #9C3B2E;
-  --plum: #7C4A6B;
+  --gold-ink: #7E5A08;
+  --terracotta: #D9771B;
+  --brick: #C2402D;
+  --plum: #8A4A8F;
 
   --surface: #F8F4E8;
   --surface-alt: #F2ECDC;
@@ -516,7 +519,7 @@ main.legal { max-width: var(--max-narrow); margin: 0 auto; padding: 48px 24px 72
 .placeholder {
   background: #FDF3E0;
   border: 1px dashed var(--terracotta);
-  color: #8A4319;
+  color: #8C4712;
   padding: 10px 14px;
   border-radius: 8px;
   font-size: 13px;
