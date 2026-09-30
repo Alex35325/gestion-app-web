@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Sécurité : GitHub Pages ne permet pas d'en-têtes HTTP personnalisés, d'où ces balises meta.
+     frame-ancestors (anti-clickjacking) est ignoré dans une meta CSP : il faudrait un en-tête HTTP (hébergeur/CDN). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Connexion QuickBooks — MAA Gestion</title>
 <link rel="icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,25 +36,11 @@
 
 <footer>
   <div class="footer-inner">
-    <span>© 2026 Groupe Gestion MAA (MAA Gestion). Tous droits réservés.</span>
+    <span>© 2026 [[NOM LÉGAL]] (MAA Gestion) · NEQ [[NEQ]]. Tous droits réservés.</span>
+    <span><a href="privacy.html">Confidentialité</a> · <a href="terms.html">Conditions</a> · <a href="contrat-licence.html">Contrat de licence</a> · <a href="soutien.html">Soutien</a></span>
   </div>
 </footer>
 
-<script>
-  // MAA Gestion est une app de bureau : Intuit n'autorise pas
-  // http://localhost comme URI de redirection en production (seulement en
-  // sandbox), donc cette page publique reçoit le retour d'Intuit ici, puis
-  // relaie IMMÉDIATEMENT vers le petit serveur local que l'app a démarré
-  // sur ce même ordinateur (voir Services/QuickBooksService.cs, LocalPort).
-  // C'est le NAVIGATEUR DU CLIENT qui fait cette deuxième requête, pas ce
-  // serveur web — il peut donc atteindre localhost sans problème.
-  var LOCAL_PORT = 51728;
-  var params = window.location.search; // déjà "?code=...&state=...&realmId=..."
-  if (params) {
-    window.location.replace("http://localhost:" + LOCAL_PORT + "/callback/" + params);
-  } else {
-    document.getElementById("msg").textContent = "Aucune information de connexion reçue — retournez dans MAA Gestion et réessayez.";
-  }
-</script>
+<script src="qb-oauth-callback.js"></script>
 </body>
 </html>
