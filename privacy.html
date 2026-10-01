@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Sécurité : GitHub Pages ne permet pas d'en-têtes HTTP personnalisés, d'où ces balises meta.
+     frame-ancestors (anti-clickjacking) est ignoré dans une meta CSP : il faudrait un en-tête HTTP (hébergeur/CDN). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Politique de confidentialité — MAA Gestion</title>
+<meta name="description" content="Comment MAA Gestion traite les renseignements personnels : collecte, fins, fournisseurs, conservation, sécurité et vos droits (Loi 25, LPRPDE).">
 <link rel="icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,50 +42,165 @@
 
 <main class="legal">
   <h1>Politique de confidentialité</h1>
-  <p class="updated">Dernière mise à jour : 22 septembre 2026</p>
+  <p class="updated">Dernière mise à jour : 30 septembre 2026</p>
 
-  <div class="placeholder">
-    Ce texte est un point de départ standard, pas un avis juridique — une révision par un professionnel du droit est recommandée avant une utilisation commerciale à grande échelle.
+  <p class="lede">Cette politique explique quels renseignements personnels MAA Gestion traite, pourquoi, avec qui ils sont partagés, combien de temps ils sont conservés et comment exercer vos droits. Elle est rédigée pour respecter la <em>Loi sur la protection des renseignements personnels dans le secteur privé</em> du Québec (modifiée par la Loi 25) et la <em>Loi sur la protection des renseignements personnels et les documents électroniques</em> (LPRPDE) du Canada.</p>
+
+  <h2 id="qui">1. Qui nous sommes</h2>
+  <p>MAA Gestion (le « logiciel ») comprend un logiciel de bureau pour Windows, une application mobile et ce site Web. Il est édité par <strong>Groupe Gestion MAA</strong>, entreprise immatriculée au Québec (NEQ 1182555509), dont l'adresse est 2736, chemin Saint-Henri, Mascouche (Québec) J7K 3C3 (« nous »).</p>
+  <p>MAA Gestion est un logiciel pour entreprises. Nos clients sont des entreprises (l'« entreprise cliente »), qui y inscrivent les renseignements de leurs employés, de leurs clients et de leurs fournisseurs. Nous jouons donc deux rôles :</p>
+  <ul>
+    <li><strong>Pour les données que l'entreprise cliente inscrit dans le logiciel</strong>, l'entreprise cliente demeure responsable de ces renseignements (elle décide de ce qu'elle y inscrit et pourquoi). Nous les traitons pour son compte, comme prestataire de services (mandataire), uniquement pour lui fournir le logiciel, selon ses instructions et notre contrat.</li>
+    <li><strong>Pour les renseignements nécessaires à la gestion de nos propres relations d'affaires</strong> (compte de connexion, licence, facturation, soutien, correspondance), nous sommes responsables de ces renseignements.</li>
+  </ul>
+
+  <h2 id="responsable">2. Responsable de la protection des renseignements personnels</h2>
+  <div class="info-box">
+    <p><strong>Alexandre Poupart</strong>, Responsable de la protection des renseignements personnels<br>
+    Groupe Gestion MAA — 2736, chemin Saint-Henri, Mascouche (Québec) J7K 3C3<br>
+    Courriel : <a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a></p>
   </div>
+  <p>Écrivez à cette personne pour toute question sur cette politique, pour exercer vos droits ou pour signaler un incident.</p>
 
-  <h2>1. Portée</h2>
-  <p>La présente politique décrit comment Groupe Gestion MAA, éditeur du logiciel MAA Gestion (« le logiciel », « nous »), traite les renseignements dans le cadre de l'utilisation du logiciel et de ses services associés.</p>
+  <h2 id="collecte">3. Renseignements que nous traitons</h2>
 
-  <h2>2. Renseignements que nous recueillons</h2>
-  <p>MAA Gestion est un logiciel de gestion d'entreprise. Les données suivantes sont saisies par l'utilisateur dans le cours normal de l'utilisation du logiciel et appartiennent à l'entreprise cliente :</p>
+  <h3>3.1 Compte et licence</h3>
   <ul>
-    <li>Renseignements sur les clients, employés, fournisseurs et véhicules de l'entreprise cliente;</li>
-    <li>Données financières et comptables (revenus, dépenses, facturation, suivi de dossier);</li>
-    <li>Feuilles de temps, entretiens, projets et notes associées;</li>
-    <li>Identifiants de connexion (courriel) pour l'authentification au compte.</li>
+    <li>Courriel de connexion et mot de passe (le mot de passe est conservé sous forme chiffrée irréversible par notre fournisseur d'authentification; nous ne le voyons jamais);</li>
+    <li>Licence à laquelle le compte est rattaché, rôle (administrateur, membre) et droits d'accès;</li>
+    <li>Données de session : nom de l'appareil, date de dernière activité (une seule session active par compte);</li>
+    <li>Journal des modifications : qui a créé, modifié ou supprimé une donnée, et quand;</li>
+    <li>Renseignements de facturation de l'entreprise cliente (nom, personne-ressource, adresse, montants facturés).</li>
   </ul>
 
-  <h2>3. Où sont stockées les données</h2>
-  <p>Les données sont stockées sur une infrastructure infonuagique multi-clients (Supabase), avec un accès isolé par licence : chaque entreprise cliente ne peut accéder qu'à ses propres données.</p>
-
-  <h2>4. Services tiers utilisés</h2>
-  <p>Certaines fonctionnalités optionnelles font appel à des services tiers, activés uniquement si l'utilisateur configure sa propre clé d'accès :</p>
+  <h3>3.2 Données inscrites par l'entreprise cliente</h3>
+  <p>Selon les modules utilisés, l'entreprise cliente peut inscrire :</p>
   <ul>
-    <li><strong>Anthropic (Claude)</strong> et <strong>OpenAI (Whisper)</strong> — pour l'extraction automatique de reçus et la transcription de notes vocales, lorsque cette fonctionnalité est activée;</li>
-    <li><strong>Google Maps</strong> — pour le calcul d'itinéraires et de distances, lorsque cette fonctionnalité est activée;</li>
-    <li><strong>Intuit QuickBooks</strong> — pour la synchronisation comptable optionnelle, lorsque cette fonctionnalité est activée et autorisée explicitement par l'utilisateur.</li>
+    <li><strong>Clients et fournisseurs</strong> : nom, coordonnées, adresse, notes, revenus, dépenses, comptes à recevoir et renseignements comptables;</li>
+    <li><strong>Employés</strong> : nom, téléphone, courriel, poste, date d'embauche, numéro de paie, type et taux de rémunération, heures travaillées (feuilles de temps), paies versées, échéances (par exemple l'expiration d'un permis de conduire ou d'un certificat) et notes;</li>
+    <li><strong>Véhicules et déplacements</strong> : immatriculation, numéro d'identification (NIV), kilométrage, destinations, buts et distances des déplacements;</li>
+    <li><strong>Adresses</strong> saisies pour les itinéraires et les courses;</li>
+    <li>Inventaire, projets, tâches, calendrier, entretiens et autres données de gestion.</li>
   </ul>
-  <p>Ces services tiers reçoivent uniquement les données nécessaires à l'exécution de la fonction demandée (ex. le texte d'un reçu envoyé pour extraction) et sont régis par leurs propres politiques de confidentialité.</p>
 
-  <h2>5. Ce que nous ne faisons pas</h2>
-  <p>Nous ne vendons pas les données de nos clients à des tiers. Nous n'utilisons pas les données saisies dans le logiciel à des fins publicitaires.</p>
+  <h3>3.3 Photos de reçus et notes vocales (optionnel)</h3>
+  <p>Si un utilisateur choisit la saisie assistée par intelligence artificielle, la photo ou le PDF d'un reçu, ou l'enregistrement d'une note vocale, est transmis au service d'IA pour être lu. Ces documents peuvent contenir des renseignements personnels (nom, adresse, numéro de carte partiel). Les données de localisation (GPS) d'une photo sont retirées avant l'envoi lorsque c'est possible. Seule la transaction que l'utilisateur vérifie et confirme est enregistrée dans MAA Gestion; la photo et l'enregistrement eux-mêmes ne sont pas conservés sur nos serveurs.</p>
 
-  <h2>6. Sécurité</h2>
-  <p>Les communications entre le logiciel et nos serveurs sont chiffrées (HTTPS). L'accès aux données est restreint par licence et par rôle (administrateur, membre).</p>
+  <h3>3.4 Données QuickBooks (optionnel)</h3>
+  <p>Si l'entreprise cliente connecte son compte QuickBooks Online, certaines données comptables sont échangées. Voir la <a href="#quickbooks">section 14</a>.</p>
 
-  <h2>7. Conservation et suppression des données</h2>
-  <p>Les données sont conservées tant que le compte de l'entreprise cliente est actif. Une demande de suppression peut être adressée à l'adresse ci-dessous.</p>
+  <h3>3.5 Ce site Web</h3>
+  <p>Ce site n'utilise <strong>aucun témoin (cookie)</strong>, aucun outil de mesure d'audience et aucun traceur publicitaire. Notre hébergeur (GitHub Pages) peut journaliser des renseignements techniques (adresse IP, navigateur) pour la sécurité et le fonctionnement du service. La page Téléchargement interroge GitHub pour afficher le numéro de la dernière version. Le formulaire de soumission de la page Tarifs n'envoie rien lui-même : il prépare un courriel dans votre propre messagerie, que vous choisissez d'envoyer ou non.</p>
 
-  <h2>8. Modifications</h2>
-  <p>Cette politique peut être mise à jour occasionnellement. La date de dernière mise à jour est indiquée en haut de cette page.</p>
+  <h2 id="fins">4. Pourquoi nous utilisons ces renseignements</h2>
+  <ul>
+    <li>Fournir le logiciel, synchroniser les données entre les ordinateurs et les téléphones de l'entreprise cliente et en assurer le fonctionnement;</li>
+    <li>Authentifier les utilisateurs, gérer les licences, les rôles et les accès;</li>
+    <li>Offrir les fonctions optionnelles demandées (lecture de reçus, transcription de notes vocales, itinéraires, synchronisation QuickBooks);</li>
+    <li>Assurer la sécurité, prévenir la fraude et l'utilisation non autorisée, et enquêter sur les incidents;</li>
+    <li>Répondre aux demandes de soutien et communiquer avec nos clients au sujet de leur compte;</li>
+    <li>Facturer nos services et respecter nos obligations légales (fiscales, comptables).</li>
+  </ul>
+  <p>Nous ne vendons aucun renseignement personnel. Nous n'utilisons pas les données inscrites dans le logiciel à des fins publicitaires, de profilage ou d'entraînement de modèles d'intelligence artificielle. Aucune décision n'est prise à votre sujet de façon exclusivement automatisée : les propositions de l'IA sont toujours vérifiées et confirmées par l'utilisateur.</p>
 
-  <h2>9. Nous contacter</h2>
-  <p>Pour toute question concernant cette politique : <a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a></p>
+  <h2 id="consentement">5. Consentement</h2>
+  <p>Nous traitons vos renseignements avec votre consentement, ou lorsque la loi le permet sans consentement (par exemple, lorsque c'est nécessaire pour exécuter le contrat avec l'entreprise cliente ou pour un prestataire de services agissant pour son compte).</p>
+  <ul>
+    <li>L'entreprise cliente est responsable d'informer ses employés, clients et fournisseurs, et d'obtenir leur consentement lorsque la loi l'exige, avant d'inscrire leurs renseignements dans le logiciel.</li>
+    <li>La saisie par IA exige un <strong>consentement explicite</strong>, demandé dans le logiciel avant le premier envoi. Vous pouvez le retirer en tout temps (logiciel : Paramètres › IA › Saisie par IA). Si vous refusez, rien n'est envoyé et la saisie manuelle reste disponible.</li>
+    <li>La connexion à QuickBooks exige une autorisation explicite donnée directement auprès d'Intuit, que vous pouvez révoquer en tout temps.</li>
+  </ul>
+
+  <h2 id="fournisseurs">6. Fournisseurs de services et communication à l'extérieur du Québec</h2>
+  <p>Nous faisons appel aux fournisseurs suivants. La <strong>base de données principale</strong> (Supabase), qui contient les données du compte et de l'entreprise cliente, est <strong>hébergée au Canada</strong>, à Montréal (région ca-central-1). Les autres fournisseurs énumérés ci-dessous (Anthropic, OpenAI, Google Maps, Intuit, Resend et l'hébergement de ce site par GitHub Pages) traitent ou hébergent des renseignements à l'extérieur du Québec et du Canada, notamment aux États-Unis, où ils peuvent être soumis aux lois locales (y compris l'accès par des autorités). Avant de communiquer des renseignements personnels à l'extérieur du Québec, nous avons réalisé une <strong>évaluation des facteurs relatifs à la vie privée (EFVP)</strong> tenant compte de la sensibilité des renseignements, des fins, des mesures de protection (chiffrement, contrats) et du régime juridique applicable. Chaque fournisseur est lié par une entente écrite ou par des conditions qui l'obligent à protéger les renseignements et à ne les utiliser que pour le service rendu.</p>
+  <table class="legal-table">
+    <thead><tr><th>Fournisseur</th><th>Rôle et renseignements</th><th>Lieu</th></tr></thead>
+    <tbody>
+      <tr><td>Supabase</td><td>Hébergement de la base de données, authentification et fonctions serveur : toutes les données du compte et de l'entreprise cliente.</td><td>Canada (Montréal, région ca-central-1)</td></tr>
+      <tr><td>Anthropic (Claude)</td><td>Lecture des reçus et des notes transcrites, seulement si la saisie par IA est activée et consentie.</td><td>États-Unis</td></tr>
+      <tr><td>OpenAI (Whisper)</td><td>Transcription des notes vocales, seulement si la saisie par IA est activée et consentie.</td><td>États-Unis</td></tr>
+      <tr><td>Google (Google Maps)</td><td>Adresses et points de départ ou d'arrivée, pour le calcul d'itinéraires et de distances.</td><td>États-Unis et autres pays</td></tr>
+      <tr><td>Intuit (QuickBooks Online)</td><td>Données comptables échangées si l'entreprise cliente connecte QuickBooks (voir la section 14).</td><td>États-Unis et Canada</td></tr>
+      <tr><td>GitHub (Microsoft)</td><td>Hébergement de ce site Web et des fichiers d'installation du logiciel; journaux techniques des visites et téléchargements.</td><td>États-Unis</td></tr>
+      <tr><td>Resend</td><td>Messagerie utilisée pour le soutien et la correspondance.</td><td>À l'extérieur du Canada</td></tr>
+    </tbody>
+  </table>
+  <p>Les fonctions d'IA et de cartographie utilisent les clés d'accès (clés API) de l'entreprise cliente : les données sont alors transmises directement de l'application au fournisseur choisi, selon le compte que l'entreprise cliente détient chez lui et les conditions de ce fournisseur. Seules les données nécessaires à la fonction demandée sont transmises. L'application mobile est distribuée par Google Play et l'App Store, qui traitent certains renseignements selon leurs propres politiques.</p>
+  <p>Nous pouvons aussi communiquer des renseignements lorsque la loi l'exige (par exemple, en réponse à une ordonnance d'un tribunal) ou, avec les protections prévues par la loi, dans le cadre d'une transaction commerciale (vente ou fusion de l'entreprise).</p>
+
+  <h2 id="conservation">7. Conservation et destruction</h2>
+  <ul>
+    <li><strong>Données de l'entreprise cliente</strong> : conservées tant que l'abonnement est actif. À la fin de l'abonnement, l'entreprise cliente dispose d'une période pour exporter ses données, puis elles sont détruites au plus tard <strong>90 jours</strong> après la fin de l'abonnement (voir les <a href="terms.html#fin">conditions d'utilisation</a>).</li>
+    <li><strong>Compte de connexion</strong> : détruit lorsque l'utilisateur supprime son compte (voir <a href="suppression-compte.html">Supprimer mon compte</a>) ou lorsque les données de l'entreprise cliente sont détruites.</li>
+    <li><strong>Sauvegardes techniques</strong> : les copies de sécurité de notre hébergeur sont remplacées automatiquement; une donnée supprimée peut y subsister jusqu'à <strong>30 jours</strong> avant d'être effacée.</li>
+    <li><strong>Renseignements de facturation</strong> : conservés aussi longtemps que l'exigent les lois fiscales (généralement six ans après l'année visée).</li>
+    <li><strong>Correspondance de soutien</strong> : conservée seulement le temps nécessaire au traitement de la demande et au suivi du dossier du client, puis supprimée.</li>
+  </ul>
+  <p>La destruction se fait par suppression définitive dans la base de données de production; les copies de sauvegarde sont effacées à leur expiration. Lorsque la loi le permet, des renseignements peuvent plutôt être anonymisés à des fins sérieuses et légitimes.</p>
+
+  <h2 id="securite">8. Mesures de sécurité</h2>
+  <ul>
+    <li>Communications chiffrées (HTTPS/TLS) entre les applications, nos serveurs et les fournisseurs;</li>
+    <li>Données chiffrées au repos par notre hébergeur;</li>
+    <li>Isolation stricte par licence au niveau de la base de données : une entreprise cliente ne peut accéder qu'à ses propres données;</li>
+    <li>Rôles et droits d'accès par membre de l'équipe, une seule session active par compte et journal des modifications;</li>
+    <li>Les clés de service et secrets des intégrations (par exemple le secret QuickBooks) demeurent côté serveur et ne sont jamais inclus dans les applications;</li>
+    <li>Sur le téléphone, les renseignements sensibles (jetons de session, clés d'accès) sont conservés dans le stockage sécurisé du système;</li>
+    <li>Minimisation avant l'envoi à l'IA (retrait des données GPS des photos, masquage des courriels et numéros de téléphone dans les exemples Excel);</li>
+    <li>Accès du personnel limité à ce qui est nécessaire au soutien et à l'exploitation.</li>
+  </ul>
+  <p>Aucune mesure n'offre une sécurité absolue. Protégez vos identifiants et avisez-nous sans délai de toute utilisation non autorisée.</p>
+
+  <h2 id="droits">9. Vos droits</h2>
+  <p>Sous réserve des exceptions prévues par la loi, vous pouvez :</p>
+  <ul>
+    <li><strong>Accéder</strong> aux renseignements personnels que nous détenons à votre sujet;</li>
+    <li>Les faire <strong>rectifier</strong> s'ils sont inexacts, incomplets ou équivoques;</li>
+    <li><strong>Retirer votre consentement</strong> à un traitement (par exemple, désactiver la saisie par IA ou déconnecter QuickBooks);</li>
+    <li>Obtenir vos renseignements dans un <strong>format technologique structuré et couramment utilisé</strong> (portabilité) : un administrateur peut utiliser la fonction « Exporter toutes mes données » du logiciel, ou nous en faire la demande;</li>
+    <li>Demander la <strong>suppression</strong> de votre compte : voir <a href="suppression-compte.html">Supprimer mon compte</a>.</li>
+  </ul>
+  <p>Adressez votre demande par écrit au responsable (<a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a>). Nous pourrons vérifier votre identité avant d'y donner suite, et nous répondrons dans les 30 jours suivant la réception. L'accès est gratuit, sauf des frais raisonnables de transcription ou de transmission, dont nous vous aviserons d'avance.</p>
+  <p>Si votre demande porte sur des renseignements qu'une entreprise cliente a inscrits dans le logiciel (par exemple, votre dossier d'employé), nous la transmettrons à cette entreprise, qui en est responsable, et nous l'aiderons à y répondre.</p>
+
+  <h2 id="plaintes">10. Plaintes</h2>
+  <p>Pour toute plainte, écrivez d'abord au responsable de la protection des renseignements personnels : nous en accuserons réception et y répondrons par écrit. Si la réponse ne vous satisfait pas, vous pouvez vous adresser à la <a href="https://www.cai.gouv.qc.ca/" rel="noopener">Commission d'accès à l'information du Québec</a> ou au <a href="https://www.priv.gc.ca/" rel="noopener">Commissariat à la protection de la vie privée du Canada</a>, selon le cas.</p>
+
+  <h2 id="incidents">11. Incidents de confidentialité</h2>
+  <p>Nous tenons un registre des incidents de confidentialité. Si un incident présente un risque de préjudice sérieux, nous prenons rapidement des mesures pour en réduire les conséquences et nous avisons la Commission d'accès à l'information et les personnes concernées, comme la loi l'exige. Lorsqu'un incident touche des données que nous traitons pour une entreprise cliente, nous l'avisons sans délai pour qu'elle puisse remplir ses propres obligations.</p>
+
+  <h2 id="enfants">12. Enfants</h2>
+  <p>MAA Gestion est destiné aux entreprises et à leur personnel. Il ne s'adresse pas aux enfants, et nous ne recueillons pas sciemment de renseignements personnels auprès de personnes de moins de 14 ans.</p>
+
+  <h2 id="technologies">13. Témoins et technologies</h2>
+  <p>Ce site n'utilise aucun témoin ni traceur. Les applications conservent localement, sur votre appareil, ce qui est nécessaire pour vous garder connecté et mémoriser vos préférences. Aucune fonction de localisation, d'identification ou de profilage n'est activée à votre insu.</p>
+
+  <h2 id="quickbooks">14. Données QuickBooks</h2>
+  <p>La connexion à QuickBooks Online (Intuit) est optionnelle et doit être autorisée par un utilisateur de l'entreprise cliente, directement sur la page d'autorisation d'Intuit. Elle ne donne accès qu'à l'entreprise QuickBooks choisie lors de l'autorisation.</p>
+  <h3>Ce que MAA Gestion lit dans QuickBooks</h3>
+  <ul>
+    <li>Le plan comptable (comptes) et les articles, pour classer les écritures envoyées;</li>
+    <li>Les clients (nom et coordonnées), pour les associer aux clients de MAA Gestion ou les importer;</li>
+    <li>Les factures et reçus de vente, ainsi que leur statut de paiement, pour importer les revenus et mettre à jour ce qui est payé;</li>
+    <li>Le nombre d'autres transactions (factures fournisseurs, dépôts, paiements, écritures de journal, crédits fournisseurs), afin de vous indiquer ce qui n'est pas importé. Leur contenu n'est pas importé.</li>
+  </ul>
+  <h3>Ce que MAA Gestion écrit dans QuickBooks</h3>
+  <ul>
+    <li>Les dépenses que vous choisissez de synchroniser (sous forme d'achats);</li>
+    <li>Les revenus que vous choisissez de synchroniser (sous forme de factures);</li>
+    <li>Les clients nécessaires à ces factures, s'ils n'existent pas déjà.</li>
+  </ul>
+  <h3>Jetons d'accès</h3>
+  <p>L'autorisation produit des jetons d'accès, échangés par une fonction serveur (le secret de l'application n'est jamais inclus dans le logiciel). Les jetons sont conservés dans notre base de données, accessibles seulement à la licence de l'entreprise cliente, et servent uniquement à la synchronisation demandée. Nous ne voyons pas votre mot de passe Intuit.</p>
+  <h3>Déconnexion et suppression</h3>
+  <p>Lorsque vous déconnectez QuickBooks (logiciel : Paramètres › QuickBooks › Déconnecter), les jetons sont révoqués auprès d'Intuit et supprimés de notre base de données; la synchronisation s'arrête immédiatement. Vous pouvez aussi révoquer l'accès depuis votre compte Intuit. Les données déjà importées dans MAA Gestion demeurent des données de l'entreprise cliente et suivent les règles de conservation de la section 7; les identifiants QuickBooks associés aux écritures sont conservés pour éviter les doublons si vous reconnectez le compte.</p>
+  <p>Les données QuickBooks ne sont ni vendues, ni utilisées à des fins publicitaires, ni transmises aux services d'IA, ni utilisées pour une autre fin que la synchronisation demandée par l'entreprise cliente.</p>
+
+  <h2 id="modifications">15. Modifications de cette politique</h2>
+  <p>Nous pouvons modifier cette politique pour refléter un changement dans nos pratiques ou dans la loi. La date de dernière mise à jour figure en haut de la page. En cas de changement important, nous en aviserons les entreprises clientes par courriel ou dans le logiciel avant son entrée en vigueur.</p>
+
+  <h2 id="contact">16. Nous joindre</h2>
+  <p>Responsable de la protection des renseignements personnels : <a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a> — Groupe Gestion MAA, 2736, chemin Saint-Henri, Mascouche (Québec) J7K 3C3.</p>
 </main>
 
 <footer>
@@ -109,16 +226,19 @@
     <div class="footer-col">
       <h4>Entreprise</h4>
       <a href="contact.html">Nous joindre</a>
+      <a href="soutien.html">Soutien</a>
     </div>
     <div class="footer-col">
       <h4>Légal</h4>
       <a href="privacy.html">Confidentialité</a>
       <a href="terms.html">Conditions d'utilisation</a>
+      <a href="contrat-licence.html">Contrat de licence</a>
+      <a href="suppression-compte.html">Supprimer mon compte</a>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-inner">
-      <span>© 2026 Groupe Gestion MAA (MAA Gestion). Tous droits réservés.</span>
+      <span>© 2026 Groupe Gestion MAA (MAA Gestion) · NEQ 1182555509. Tous droits réservés.</span>
       <span><a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a></span>
     </div>
   </div>

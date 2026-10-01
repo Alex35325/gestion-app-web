@@ -7,6 +7,28 @@
    couleurs vives, plus joyeux, moderne mais professionnel ») : sarcelle, or,
    terre cuite, brique et prune plus franches, mêmes valeurs que le logiciel. */
 
+/* Police Fraunces hébergée sur ce site (fonts/, licence SIL OFL 1.1 : voir
+   fonts/OFL.txt) plutôt que chez Google Fonts : aucune requête vers un tiers
+   (adresse IP du visiteur), et la politique CSP peut s'en tenir à 'self'.
+   Fichier variable (axes opsz 9–144 et wght 100–900) : un seul fichier par
+   jeu de caractères couvre les graisses 500, 700 et 900 utilisées. */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/fraunces-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/fraunces-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --accent: #1F4D3A;
   --accent-dark: #153729;
@@ -515,6 +537,47 @@ main.legal { max-width: var(--max-narrow); margin: 0 auto; padding: 48px 24px 72
 .legal h2 { font-size: 18px; margin-top: 32px; }
 .legal p, .legal li { font-size: 14.5px; color: var(--text); }
 .legal ul { padding-left: 22px; }
+.legal h3 { font-size: 15.5px; margin-top: 20px; margin-bottom: 6px; }
+.legal .lede { font-size: 15.5px; color: var(--text-soft); }
+.legal-table { width: 100%; border-collapse: collapse; margin: 10px 0 8px; }
+.legal-table th, .legal-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 9px 10px 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.legal-table th { color: var(--text-faint); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em; }
+@media (max-width: 600px) {
+  .legal-table, .legal-table tbody, .legal-table tr, .legal-table td { display: block; width: 100%; }
+  .legal-table thead { display: none; }
+  .legal-table tr { border-bottom: 1px solid var(--border); padding: 8px 0; }
+  .legal-table td { border: 0; padding: 2px 0; }
+  .legal-table td:first-child { font-weight: 600; }
+}
+.info-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin: 16px 0;
+}
+.info-box h3 { margin-top: 0; }
+.info-box p:last-child, .info-box ul:last-child { margin-bottom: 0; }
+.code-line {
+  display: block;
+  font-family: Consolas, "Cascadia Mono", Menlo, monospace;
+  font-size: 13px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  overflow-x: auto;
+  white-space: pre;
+  color: var(--text);
+}
+.hash-value { overflow-wrap: anywhere; white-space: normal; }
+.footer-legal-id { color: var(--text-faint); }
 
 .placeholder {
   background: #FDF3E0;
@@ -730,3 +793,168 @@ main.legal { max-width: var(--max-narrow); margin: 0 auto; padding: 48px 24px 72
   padding: 6px 12px;
   border-radius: 999px;
 }
+
+/* ---------- Achat en ligne (Tarifs), Merci, Bienvenue ---------- */
+
+[hidden] { display: none !important; }
+
+.plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.plan-head h3 { font-size: 22px; margin-bottom: 4px; }
+.plan-head p { font-size: 14px; color: var(--text-soft); margin: 0; max-width: 360px; }
+.plan-price { text-align: right; }
+.plan-price .amount {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--accent-dark);
+  line-height: 1.1;
+}
+.plan-price .per { display: block; font-size: 13px; color: var(--text-faint); margin-top: 2px; }
+@media (max-width: 480px) { .plan-price { text-align: left; } }
+
+.segmented {
+  display: inline-flex;
+  background: var(--surface-alt);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+  max-width: 100%;
+}
+.segmented label {
+  position: relative;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.segmented label:has(input:checked) { background: var(--accent); color: #fff; }
+.segmented label:has(input:focus-visible) { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.field input[type="number"] { max-width: 160px; }
+.field .field-hint { font-size: 12.5px; color: var(--text-faint); margin: 6px 0 0; }
+
+.tax-note { font-size: 13px; color: var(--text-soft); margin: 0; }
+
+.form-error {
+  background: #FBE9E5;
+  border: 1px solid #E8B4A9;
+  border-left: 4px solid var(--brick);
+  color: #7A2316;
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 14px;
+  margin: 0;
+}
+.form-success {
+  background: var(--accent-soft);
+  border: 1px solid #B9D8C3;
+  border-left: 4px solid var(--teal);
+  color: var(--accent-dark);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 14px;
+  margin: 0;
+}
+
+.soon-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 26px;
+  text-align: center;
+}
+.soon-card h3 { font-size: 20px; margin-bottom: 8px; }
+.soon-card p { color: var(--text-soft); font-size: 14.5px; margin: 0 auto 16px; max-width: 480px; }
+
+.status-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 34px;
+}
+@media (max-width: 480px) { .status-card { padding: 22px; } }
+.status-card h2 { font-size: 24px; margin-bottom: 8px; }
+.status-card > p { color: var(--text-soft); }
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: spin 0.9s linear infinite;
+  margin-bottom: 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+
+.license-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: var(--surface-alt);
+  border: 1.5px dashed var(--accent);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin: 8px 0 6px;
+}
+.license-box code {
+  flex: 1 1 220px;
+  min-width: 0;
+  font-family: Consolas, "Cascadia Mono", Menlo, monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  overflow-wrap: anywhere;
+}
+.btn-sm { padding: 8px 16px; font-size: 13.5px; }
+
+.next-steps { list-style: none; counter-reset: etape; padding: 0; margin: 18px 0 0; }
+.next-steps li {
+  counter-increment: etape;
+  position: relative;
+  padding-left: 46px;
+  margin-bottom: 16px;
+  font-size: 14.5px;
+  color: var(--text);
+  min-height: 32px;
+}
+.next-steps li::before {
+  content: counter(etape);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.next-steps b { color: var(--accent-dark); }

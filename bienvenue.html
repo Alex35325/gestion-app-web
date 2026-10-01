@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Sécurité : GitHub Pages ne permet pas d'en-têtes HTTP personnalisés, d'où ces balises meta.
+     frame-ancestors (anti-clickjacking) est ignoré dans une meta CSP : il faudrait un en-tête HTTP (hébergeur/CDN). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self' https://api.github.com https://fquwpdzceuqlxvewacxz.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<title>Bienvenue — MAA Gestion</title>
+<meta name="description" content="Choisissez le mot de passe de votre compte MAA Gestion.">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <svg class="brand-badge" width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="gHeader" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E8577"/><stop offset="1" stop-color="#153729"/></linearGradient></defs>
+        <rect width="40" height="40" rx="11" fill="url(#gHeader)"/>
+        <text x="20" y="27" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="21" fill="#F8F4E8" text-anchor="middle">M</text>
+        <circle cx="32.5" cy="7.5" r="3.1" fill="#D9A441"/>
+      </svg>
+      <span class="brand-word"><b>MAA</b><span> Gestion</span></span>
+    </a>
+    <nav class="main-nav">
+      <a class="nav-link" href="index.html">Accueil</a>
+      <a class="nav-link" href="fonctionnalites.html">Fonctionnalités</a>
+      <a class="nav-link" href="tarifs.html">Tarifs</a>
+      <a class="nav-link" href="telecharger.html">Téléchargement</a>
+      <a class="nav-link" href="contact.html">Nous joindre</a>
+    </nav>
+    <div class="header-actions">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a class="btn btn-primary" href="telecharger.html">Télécharger</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: 64px;">
+    <div class="container" style="max-width: 620px;">
+      <span class="eyebrow">Bienvenue</span>
+      <h1 style="font-size: 36px;">Bienvenue dans MAA Gestion</h1>
+      <p class="hero-lede" style="max-width: none;">Choisissez le mot de passe de votre compte.</p>
+
+      <div class="status-card">
+        <!-- 1. Vérification du lien reçu par courriel. -->
+        <div id="etat-verif">
+          <div class="spinner" aria-hidden="true"></div>
+          <h2>Vérification du lien…</h2>
+          <p role="status">Un instant, nous vérifions le lien reçu par courriel.</p>
+        </div>
+
+        <!-- 2. Choix du mot de passe. -->
+        <form class="pw-form" id="mdp-form" novalidate hidden>
+          <h2>Choisir votre mot de passe</h2>
+          <p style="color: var(--text-soft);">Compte : <b id="compte-courriel"></b></p>
+          <div class="field" style="margin-bottom: 16px;">
+            <label for="mdp">Nouveau mot de passe</label>
+            <input type="password" id="mdp" autocomplete="new-password" minlength="10" required>
+            <p class="field-hint">Au moins 10 caractères. Une courte phrase est plus facile à retenir et plus sûre.</p>
+          </div>
+          <div class="field" style="margin-bottom: 16px;">
+            <label for="mdp2">Confirmer le mot de passe</label>
+            <input type="password" id="mdp2" autocomplete="new-password" minlength="10" required>
+          </div>
+          <p class="form-error" id="mdp-erreur" role="alert" hidden style="margin-bottom: 16px;"></p>
+          <button type="submit" class="btn btn-primary btn-lg" id="mdp-bouton">Enregistrer mon mot de passe</button>
+        </form>
+
+        <!-- 3. Terminé. -->
+        <div id="etat-fini" hidden>
+          <p class="form-success" role="status">Votre mot de passe est enregistré.</p>
+          <div id="bloc-cle" hidden>
+            <h2 style="margin-top: 22px;">Votre clé de licence</h2>
+            <div class="license-box">
+              <code id="cle-licence"></code>
+              <button type="button" class="btn btn-secondary btn-sm" id="copier-cle" data-copy-target="cle-licence" data-copy-status="copie-statut">Copier</button>
+            </div>
+            <p class="form-hint" id="copie-statut" role="status" aria-live="polite">&nbsp;</p>
+          </div>
+          <h2 style="margin-top: 22px;">Prochaines étapes</h2>
+          <ol class="next-steps">
+            <li><b>Téléchargez le logiciel</b> pour Windows depuis la page <a href="telecharger.html">Téléchargement</a> et installez-le.</li>
+            <li><b>Connectez-vous</b> avec <span id="fini-courriel">votre courriel</span> et le mot de passe que vous venez de choisir.</li>
+            <li><b>Entrez votre clé de licence</b> si le logiciel la demande (elle figure aussi dans votre courriel d'invitation).</li>
+          </ol>
+          <p class="form-hint">Vous pouvez fermer cette page.</p>
+        </div>
+
+        <!-- 4. Lien invalide ou expiré. -->
+        <div id="etat-erreur" hidden>
+          <h2>Impossible d'utiliser ce lien</h2>
+          <p class="form-error" id="erreur-message" role="alert"></p>
+          <p style="margin-top: 16px;">Les liens reçus par courriel ne servent qu'une fois et expirent après un certain temps. Pour choisir votre mot de passe malgré tout :</p>
+          <ol class="next-steps">
+            <li><b>Téléchargez et ouvrez le logiciel</b> (page <a href="telecharger.html">Téléchargement</a>).</li>
+            <li>À l'écran de connexion, cliquez sur <b>« Mot de passe oublié »</b> et entrez le courriel utilisé lors de l'achat.</li>
+            <li>Entrez le code reçu par courriel, puis choisissez votre mot de passe.</li>
+          </ol>
+          <p class="form-hint">Toujours bloqué? Écrivez-nous à <a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a>.</p>
+        </div>
+
+        <noscript>
+          <p class="form-error">JavaScript est requis pour choisir votre mot de passe sur cette page. Vous pouvez aussi utiliser « Mot de passe oublié » dans le logiciel.</p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <svg class="brand-badge" width="32" height="32" viewBox="0 0 40 40" aria-hidden="true">
+          <defs><linearGradient id="gFooter" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E8577"/><stop offset="1" stop-color="#153729"/></linearGradient></defs>
+          <rect width="40" height="40" rx="11" fill="url(#gFooter)"/>
+          <text x="20" y="27" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="21" fill="#F8F4E8" text-anchor="middle">M</text>
+          <circle cx="32.5" cy="7.5" r="3.1" fill="#D9A441"/>
+        </svg>
+        <span class="brand-word"><b>MAA</b><span> Gestion</span></span>
+      </a>
+      <p>Logiciel de gestion tout-en-un pour la PME : clients, véhicules, employés, inventaire, comptabilité et projets, avec saisie assistée par intelligence artificielle.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Produit</h4>
+      <a href="fonctionnalites.html">Fonctionnalités</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="telecharger.html">Téléchargement</a>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <a href="contact.html">Nous joindre</a>
+      <a href="soutien.html">Soutien</a>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="terms.html">Conditions d'utilisation</a>
+      <a href="contrat-licence.html">Contrat de licence</a>
+      <a href="suppression-compte.html">Supprimer mon compte</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-inner">
+      <span>© 2026 Groupe Gestion MAA (MAA Gestion) · NEQ 1182555509. Tous droits réservés.</span>
+      <span><a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a></span>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="vendor/supabase-js-2.117.2.min.js"></script>
+<script src="bienvenue.js"></script>
+</body>
+</html>

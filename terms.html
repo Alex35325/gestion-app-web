@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Sécurité : GitHub Pages ne permet pas d'en-têtes HTTP personnalisés, d'où ces balises meta.
+     frame-ancestors (anti-clickjacking) est ignoré dans une meta CSP : il faudrait un en-tête HTTP (hébergeur/CDN). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Conditions d'utilisation — MAA Gestion</title>
+<meta name="description" content="Conditions d'abonnement à MAA Gestion : durée, renouvellement, paiement, remboursement, données et responsabilités.">
 <link rel="icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,44 +42,91 @@
 
 <main class="legal">
   <h1>Conditions d'utilisation</h1>
-  <p class="updated">Dernière mise à jour : 22 septembre 2026</p>
+  <p class="updated">Dernière mise à jour : 30 septembre 2026</p>
 
-  <div class="placeholder">
-    Ce texte est un point de départ standard, pas un avis juridique — une révision par un professionnel du droit est recommandée avant une utilisation commerciale à grande échelle.
-  </div>
+  <p class="lede">Ces conditions forment le contrat entre <strong>Groupe Gestion MAA</strong> (NEQ 1182555509, 2736, chemin Saint-Henri, Mascouche (Québec) J7K 3C3) (« nous ») et l'entreprise qui s'abonne à MAA Gestion (l'« entreprise cliente »). L'utilisation du logiciel lui-même est aussi régie par le <a href="contrat-licence.html">contrat de licence d'utilisateur final</a>, et le traitement des renseignements personnels par la <a href="privacy.html">politique de confidentialité</a>.</p>
 
-  <h2>1. Acceptation des conditions</h2>
-  <p>En installant ou en utilisant le logiciel MAA Gestion (« le logiciel »), édité par Groupe Gestion MAA (« nous »), vous acceptez les présentes conditions d'utilisation.</p>
+  <h2 id="acceptation">1. Acceptation</h2>
+  <p>En s'abonnant, en activant une clé de licence ou en utilisant MAA Gestion (le logiciel de bureau, l'application mobile et les services en ligne associés, ensemble le « service »), l'entreprise cliente accepte ces conditions. La personne qui les accepte déclare avoir le pouvoir de lier l'entreprise cliente.</p>
 
-  <h2>2. Licence d'utilisation</h2>
-  <p>Une licence valide accorde à l'entreprise cliente un droit d'utilisation non exclusif et non transférable du logiciel, pour un nombre d'utilisateurs déterminé par la licence achetée. Le logiciel demeure la propriété de son éditeur.</p>
+  <h2 id="entreprises">2. Service réservé aux entreprises</h2>
+  <p>Le service est offert exclusivement aux entreprises, travailleurs autonomes et organismes, pour les besoins de leurs activités. Il n'est pas offert aux consommateurs pour un usage personnel, familial ou domestique.</p>
+  <p>Pour le moment, le service est vendu <strong>au Canada seulement</strong> : l'entreprise cliente doit être établie au Canada et l'adresse de facturation doit y être située.</p>
 
-  <h2>3. Compte et données</h2>
-  <p>L'entreprise cliente est responsable de l'exactitude des données saisies dans le logiciel et de la confidentialité de ses identifiants de connexion. Les données saisies demeurent la propriété de l'entreprise cliente — voir notre <a href="privacy.html">politique de confidentialité</a>.</p>
+  <h2 id="abonnement">3. Abonnement, durée et renouvellement automatique</h2>
+  <ul>
+    <li>L'abonnement est conclu pour la durée indiquée dans la soumission ou la facture (mensuelle ou annuelle, selon l'entente), pour les modules et le nombre d'utilisateurs qui y sont prévus.</li>
+    <li>À la fin de chaque période, l'abonnement se <strong>renouvelle automatiquement</strong> pour une période de même durée, aux prix alors en vigueur, sauf si l'une des parties avise l'autre par écrit de son intention de ne pas le renouveler au moins 30 jours avant la fin de la période en cours.</li>
+    <li>Nous rappelons le renouvellement d'un abonnement annuel par courriel au moins 30 jours avant son échéance.</li>
+    <li>Des modules ou utilisateurs peuvent être ajoutés en cours de période; ils sont facturés au prorata.</li>
+  </ul>
 
-  <h2>4. Utilisation acceptable</h2>
-  <p>Le logiciel doit être utilisé conformément aux lois applicables. Il est interdit de tenter de contourner les mécanismes de licence ou de sécurité du logiciel.</p>
+  <h2 id="paiement">4. Prix, paiement et taxes</h2>
+  <ul>
+    <li>Les prix sont en dollars canadiens et <strong>excluent les taxes</strong> (TPS et TVQ), qui s'ajoutent à la facture.</li>
+    <li>Les factures sont payables à l'avance pour chaque période, au plus tard 30 jours après leur date, par carte de crédit, carte de débit, virement Interac ou dépôt direct.</li>
+    <li>Nous pouvons modifier nos prix pour une période future en donnant un préavis écrit d'au moins 30 jours. Le nouveau prix s'applique au renouvellement suivant.</li>
+    <li>Les frais facturés par des tiers pour des services utilisés avec les clés d'accès de l'entreprise cliente (par exemple Anthropic, OpenAI ou Google) sont payés directement par l'entreprise cliente à ces fournisseurs et ne sont pas inclus dans nos prix.</li>
+  </ul>
 
-  <h2>5. Services tiers</h2>
-  <p>Certaines fonctionnalités optionnelles (extraction de reçus par IA, calcul d'itinéraires, synchronisation QuickBooks) font appel à des services tiers et peuvent nécessiter que l'entreprise cliente fournisse ses propres clés d'accès. L'utilisation de ces services tiers est aussi régie par les conditions de leurs fournisseurs respectifs.</p>
+  <h2 id="remboursement">5. Politique de remboursement</h2>
+  <p>Lors d'un premier abonnement, l'entreprise cliente peut l'annuler dans les <strong>14 jours</strong> suivant son début et obtenir le remboursement complet des sommes versées pour cet abonnement. Passé ce délai, les sommes payées pour une période commencée ne sont pas remboursables, sauf si la loi l'exige ou si nous résilions l'abonnement sans faute de l'entreprise cliente, auquel cas nous remboursons la portion non utilisée.</p>
 
-  <h2>6. Disponibilité et support</h2>
-  <p>Le logiciel est fourni « tel quel ». Nous mettons des efforts raisonnables à assurer sa disponibilité et son bon fonctionnement, sans garantir une disponibilité ininterrompue.</p>
+  <h2 id="suspension">6. Retard de paiement et suspension</h2>
+  <p>Si un paiement échoue ou qu'une facture demeure impayée à son échéance, nous en avisons l'entreprise cliente par écrit (courriel). Si la somme n'est pas payée dans un <strong>délai de grâce de 7 jours</strong> suivant l'échéance, l'accès au service est suspendu. Pendant la suspension, les données de l'entreprise cliente sont conservées et ne sont pas supprimées; l'accès est rétabli dès le paiement reçu. Si la suspension dure plus de 60 jours, nous pouvons résilier l'abonnement; l'article 8 s'applique alors.</p>
 
-  <h2>7. Limitation de responsabilité</h2>
-  <p>Dans la mesure permise par la loi, l'éditeur du logiciel ne pourra être tenu responsable des dommages indirects, accessoires ou consécutifs découlant de l'utilisation du logiciel.</p>
+  <h2 id="comptes">7. Comptes, utilisateurs et données</h2>
+  <ul>
+    <li>L'entreprise cliente gère ses utilisateurs et leurs droits d'accès. Elle est responsable des gestes posés avec ses comptes et de la confidentialité des mots de passe et des clés de licence.</li>
+    <li>Les données inscrites dans le logiciel <strong>appartiennent à l'entreprise cliente</strong>. Elle est responsable de leur exactitude, de leur légalité et, lorsque la loi l'exige, du consentement des personnes concernées (employés, clients, fournisseurs).</li>
+    <li>Nous traitons ces données uniquement pour fournir le service, pour le compte de l'entreprise cliente, conformément à la <a href="privacy.html">politique de confidentialité</a>. Nous ne les utilisons pas à d'autres fins.</li>
+    <li>Le logiciel offre des sauvegardes et une exportation des données; l'entreprise cliente demeure responsable de conserver les copies dont elle a besoin pour ses obligations (par exemple fiscales).</li>
+  </ul>
 
-  <h2>8. Résiliation</h2>
-  <p>La licence peut être résiliée en cas de non-respect des présentes conditions ou de non-paiement des frais applicables.</p>
+  <h2 id="fin">8. Données à la fin du contrat</h2>
+  <p>À la fin de l'abonnement, quelle qu'en soit la cause, l'entreprise cliente dispose de <strong>30 jours</strong> pour exporter ses données (fonction « Exporter toutes mes données » ou sur demande). Au terme de la période de conservation de <strong>90 jours</strong> suivant la fin de l'abonnement, les données de l'entreprise cliente sont détruites de façon définitive, y compris des sauvegardes à leur expiration, sauf ce que la loi nous oblige à conserver (par exemple nos propres documents de facturation).</p>
 
-  <h2>9. Droit applicable</h2>
-  <p>Les présentes conditions sont régies par les lois de la province de Québec et les lois du Canada applicables.</p>
+  <h2 id="utilisation">9. Utilisation acceptable</h2>
+  <p>L'entreprise cliente et ses utilisateurs s'engagent à ne pas :</p>
+  <ul>
+    <li>utiliser le service en contravention d'une loi, notamment les lois sur la protection des renseignements personnels, la fiscalité ou les normes du travail;</li>
+    <li>inscrire des renseignements sans en avoir le droit, ou des contenus illicites ou malveillants;</li>
+    <li>contourner les mécanismes de licence, d'authentification, de sécurité ou d'isolation des données, ou tenter d'accéder aux données d'une autre entreprise;</li>
+    <li>partager une clé de licence ou un compte à l'extérieur de l'entreprise cliente, ou dépasser le nombre d'utilisateurs prévu;</li>
+    <li>surcharger volontairement le service, le soumettre à des tests d'intrusion sans autorisation écrite, ou en extraire les données de façon automatisée autrement que par les fonctions prévues;</li>
+    <li>revendre ou mettre le service à la disposition de tiers sans entente écrite.</li>
+  </ul>
+  <p>Nous pouvons suspendre un compte qui enfreint ces règles lorsque c'est nécessaire pour protéger le service ou d'autres clients, en avisant l'entreprise cliente dès que possible.</p>
 
-  <h2>10. Modifications</h2>
-  <p>Ces conditions peuvent être mises à jour occasionnellement. La date de dernière mise à jour est indiquée en haut de cette page.</p>
+  <h2 id="tiers">10. Services tiers</h2>
+  <p>Certaines fonctions optionnelles (saisie par IA, itinéraires, synchronisation QuickBooks) dépendent de services tiers et peuvent exiger que l'entreprise cliente fournisse ses propres clés d'accès. Leur utilisation est aussi régie par les conditions de ces fournisseurs. Nous ne sommes pas responsables de la disponibilité ni des changements de ces services, mais nous faisons des efforts raisonnables pour adapter le logiciel.</p>
 
-  <h2>11. Nous contacter</h2>
-  <p>Pour toute question concernant ces conditions : <a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a></p>
+  <h2 id="disponibilite">11. Disponibilité, mises à jour et soutien</h2>
+  <p>Nous mettons des efforts raisonnables pour assurer la disponibilité et le bon fonctionnement du service, sans garantir une disponibilité ininterrompue. Des interruptions peuvent survenir pour l'entretien, les mises à jour ou des causes hors de notre contrôle. Les mises à jour du logiciel s'installent automatiquement. Le soutien est offert en français par courriel (voir la page <a href="soutien.html">Soutien</a>).</p>
+
+  <h2 id="propriete">12. Propriété intellectuelle</h2>
+  <p>Le logiciel, le site et leur contenu demeurent notre propriété. L'abonnement confère seulement le droit d'utilisation décrit dans le <a href="contrat-licence.html">contrat de licence</a>. Les suggestions qu'une entreprise cliente nous transmet peuvent être intégrées au logiciel sans obligation envers elle.</p>
+
+  <h2 id="garanties">13. Garanties</h2>
+  <p>Sous réserve de la loi, le service est fourni « tel quel ». Nous ne garantissons pas qu'il conviendra à un usage particulier ni qu'il sera exempt d'erreurs. Les calculs du logiciel (taxes, paie, rentabilité, etc.) sont des outils d'aide : l'entreprise cliente demeure responsable de les vérifier et de ses déclarations auprès des autorités.</p>
+
+  <h2 id="responsabilite">14. Limitation de responsabilité</h2>
+  <p>Dans la mesure permise par la loi, l'éditeur du logiciel ne pourra être tenu responsable des dommages indirects, accessoires ou consécutifs découlant de l'utilisation du logiciel, notamment la perte de profits, de revenus ou de données. Dans tous les cas, notre responsabilité totale se limite aux sommes payées par l'entreprise cliente pour le service au cours des 12 mois précédant l'événement. Ces limites ne s'appliquent pas au préjudice causé par une faute intentionnelle ou lourde, ni au préjudice corporel ou moral.</p>
+
+  <h2 id="resiliation">15. Résiliation</h2>
+  <p>Chaque partie peut résilier l'abonnement si l'autre manque gravement à ces conditions et n'y remédie pas dans les 30 jours suivant un avis écrit. L'entreprise cliente peut aussi mettre fin au renouvellement comme prévu à l'article 3. L'article 8 s'applique à toute fin de contrat.</p>
+
+  <h2 id="modifications">16. Modifications des conditions</h2>
+  <p>Nous pouvons modifier ces conditions. Nous transmettons un avis écrit (courriel ou avis dans le logiciel) au moins <strong>30 jours</strong> avant l'entrée en vigueur d'une modification importante, en indiquant clairement ce qui change. Si l'entreprise cliente refuse la modification, elle peut mettre fin à l'abonnement avant son entrée en vigueur et obtenir le remboursement de la portion non utilisée de la période payée.</p>
+
+  <h2 id="droit">17. Droit applicable et tribunaux</h2>
+  <p>Ces conditions sont régies par les lois du Québec et les lois du Canada qui s'y appliquent. Tout litige relève des tribunaux compétents du Québec. Les parties s'engagent d'abord à tenter de régler un différend de bonne foi, par la discussion.</p>
+
+  <h2 id="divers">18. Dispositions générales</h2>
+  <p>Ces conditions, la soumission ou la facture, le contrat de licence et la politique de confidentialité constituent l'entente complète entre les parties. Si une disposition est jugée invalide, les autres demeurent en vigueur. Les parties ont voulu que ces conditions soient rédigées en français.</p>
+
+  <h2 id="contact">19. Nous joindre</h2>
+  <p>Pour toute question concernant ces conditions : <a href="mailto:mathieuh@ggestionmaa.com">mathieuh@ggestionmaa.com</a>.</p>
 </main>
 
 <footer>
@@ -103,16 +152,19 @@
     <div class="footer-col">
       <h4>Entreprise</h4>
       <a href="contact.html">Nous joindre</a>
+      <a href="soutien.html">Soutien</a>
     </div>
     <div class="footer-col">
       <h4>Légal</h4>
       <a href="privacy.html">Confidentialité</a>
       <a href="terms.html">Conditions d'utilisation</a>
+      <a href="contrat-licence.html">Contrat de licence</a>
+      <a href="suppression-compte.html">Supprimer mon compte</a>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-inner">
-      <span>© 2026 Groupe Gestion MAA (MAA Gestion). Tous droits réservés.</span>
+      <span>© 2026 Groupe Gestion MAA (MAA Gestion) · NEQ 1182555509. Tous droits réservés.</span>
       <span><a href="mailto:alexandrepoupart@ggestionmaa.com">alexandrepoupart@ggestionmaa.com</a></span>
     </div>
   </div>
