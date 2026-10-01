@@ -71,3 +71,30 @@
     })
     .catch(function () { /* silencieux — le bouton fonctionne sans ça */ });
 })();
+
+// Boutons « Copier » (pages Merci et Bienvenue) : <button data-copy-target="id"
+// data-copy-status="id">. Sans accès au presse-papiers, le texte est
+// sélectionné pour un Ctrl+C manuel.
+(function () {
+  document.querySelectorAll("[data-copy-target]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var cible = document.getElementById(btn.getAttribute("data-copy-target"));
+      var statut = document.getElementById(btn.getAttribute("data-copy-status"));
+      if (!cible) return;
+      function dire(t) { if (statut) statut.textContent = t; }
+      function manuel() {
+        var range = document.createRange();
+        range.selectNodeContents(cible);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        dire("Copie automatique impossible : le texte est sélectionné, faites Ctrl+C.");
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(cible.textContent).then(function () { dire("Copié dans le presse-papiers."); }, manuel);
+      } else {
+        manuel();
+      }
+    });
+  });
+})();
