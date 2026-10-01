@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-  ÉBAUCHE À FAIRE RÉVISER PAR UN AVOCAT (Québec) AVANT PUBLICATION.
-  Ce texte n'est pas un avis juridique. Les passages entre [[DOUBLES CROCHETS]]
-  sont des renseignements à fournir ou des valeurs par défaut à confirmer.
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -117,7 +112,7 @@
   </ul>
 
   <h2 id="fournisseurs">6. Fournisseurs de services et communication à l'extérieur du Québec</h2>
-  <p>Nous faisons appel aux fournisseurs suivants. La <strong>base de données principale</strong> (Supabase), qui contient les données du compte et de l'entreprise cliente, est <strong>hébergée au Canada</strong>, à Montréal (région ca-central-1). Les autres fournisseurs énumérés ci-dessous (Anthropic, OpenAI, Google Maps, Intuit et l'hébergement de ce site par GitHub Pages) traitent ou hébergent des renseignements à l'extérieur du Québec et du Canada, notamment aux États-Unis, où ils peuvent être soumis aux lois locales (y compris l'accès par des autorités). Avant de communiquer des renseignements personnels à l'extérieur du Québec, nous avons réalisé une <strong>évaluation des facteurs relatifs à la vie privée (EFVP)</strong> tenant compte de la sensibilité des renseignements, des fins, des mesures de protection (chiffrement, contrats) et du régime juridique applicable. Chaque fournisseur est lié par une entente écrite ou par des conditions qui l'obligent à protéger les renseignements et à ne les utiliser que pour le service rendu.</p>
+  <p>Nous faisons appel aux fournisseurs suivants. La <strong>base de données principale</strong> (Supabase), qui contient les données du compte et de l'entreprise cliente, est <strong>hébergée au Canada</strong>, à Montréal (région ca-central-1). Les autres fournisseurs énumérés ci-dessous (Anthropic, OpenAI, Google Maps, Intuit, Resend et l'hébergement de ce site par GitHub Pages) traitent ou hébergent des renseignements à l'extérieur du Québec et du Canada, notamment aux États-Unis, où ils peuvent être soumis aux lois locales (y compris l'accès par des autorités). Avant de communiquer des renseignements personnels à l'extérieur du Québec, nous avons réalisé une <strong>évaluation des facteurs relatifs à la vie privée (EFVP)</strong> tenant compte de la sensibilité des renseignements, des fins, des mesures de protection (chiffrement, contrats) et du régime juridique applicable. Chaque fournisseur est lié par une entente écrite ou par des conditions qui l'obligent à protéger les renseignements et à ne les utiliser que pour le service rendu.</p>
   <table class="legal-table">
     <thead><tr><th>Fournisseur</th><th>Rôle et renseignements</th><th>Lieu</th></tr></thead>
     <tbody>
@@ -127,7 +122,7 @@
       <tr><td>Google (Google Maps)</td><td>Adresses et points de départ ou d'arrivée, pour le calcul d'itinéraires et de distances.</td><td>États-Unis et autres pays</td></tr>
       <tr><td>Intuit (QuickBooks Online)</td><td>Données comptables échangées si l'entreprise cliente connecte QuickBooks (voir la section 14).</td><td>États-Unis et Canada</td></tr>
       <tr><td>GitHub (Microsoft)</td><td>Hébergement de ce site Web et des fichiers d'installation du logiciel; journaux techniques des visites et téléchargements.</td><td>États-Unis</td></tr>
-      <tr><td>[[FOURNISSEUR DE COURRIEL]]</td><td>Messagerie utilisée pour le soutien et la correspondance.</td><td>[[LIEU]]</td></tr>
+      <tr><td>Resend</td><td>Messagerie utilisée pour le soutien et la correspondance.</td><td>À l'extérieur du Canada</td></tr>
     </tbody>
   </table>
   <p>Les fonctions d'IA et de cartographie utilisent les clés d'accès (clés API) de l'entreprise cliente : les données sont alors transmises directement de l'application au fournisseur choisi, selon le compte que l'entreprise cliente détient chez lui et les conditions de ce fournisseur. Seules les données nécessaires à la fonction demandée sont transmises. L'application mobile est distribuée par Google Play et l'App Store, qui traitent certains renseignements selon leurs propres politiques.</p>
@@ -137,9 +132,9 @@
   <ul>
     <li><strong>Données de l'entreprise cliente</strong> : conservées tant que l'abonnement est actif. À la fin de l'abonnement, l'entreprise cliente dispose d'une période pour exporter ses données, puis elles sont détruites au plus tard <strong>90 jours</strong> après la fin de l'abonnement (voir les <a href="terms.html#fin">conditions d'utilisation</a>).</li>
     <li><strong>Compte de connexion</strong> : détruit lorsque l'utilisateur supprime son compte (voir <a href="suppression-compte.html">Supprimer mon compte</a>) ou lorsque les données de l'entreprise cliente sont détruites.</li>
-    <li><strong>Sauvegardes techniques</strong> : les copies de sécurité de notre hébergeur sont remplacées automatiquement; une donnée supprimée peut y subsister jusqu'à <strong>[[DURÉE DES SAUVEGARDES]]</strong> avant d'être effacée.</li>
+    <li><strong>Sauvegardes techniques</strong> : les copies de sécurité de notre hébergeur sont remplacées automatiquement; une donnée supprimée peut y subsister jusqu'à <strong>30 jours</strong> avant d'être effacée.</li>
     <li><strong>Renseignements de facturation</strong> : conservés aussi longtemps que l'exigent les lois fiscales (généralement six ans après l'année visée).</li>
-    <li><strong>Correspondance de soutien</strong> : conservée [[DURÉE DE CONSERVATION DU SOUTIEN]] après la fermeture de la demande.</li>
+    <li><strong>Correspondance de soutien</strong> : conservée seulement le temps nécessaire au traitement de la demande et au suivi du dossier du client, puis supprimée.</li>
   </ul>
   <p>La destruction se fait par suppression définitive dans la base de données de production; les copies de sauvegarde sont effacées à leur expiration. Lorsque la loi le permet, des renseignements peuvent plutôt être anonymisés à des fins sérieuses et légitimes.</p>
 

@@ -45,7 +45,7 @@
     <div class="container" style="text-align:center; max-width: var(--max-narrow);">
       <span class="eyebrow">Tarifs</span>
       <h1 style="font-size: 38px;">Vous payez seulement ce que vous utilisez</h1>
-      <p class="hero-lede" style="margin: 0 auto;">Chaque licence MAA Gestion est configurée selon les modules et le nombre d'utilisateurs dont votre entreprise a réellement besoin. Dites-nous ce qu'il vous faut, et nous vous préparons une soumission — ou <a href="#acheter">achetez en ligne</a>.</p>
+      <p class="hero-lede" style="margin: 0 auto;">Chaque licence MAA Gestion est configurée selon les modules et le nombre d'utilisateurs dont votre entreprise a réellement besoin. Dites-nous ce qu'il vous faut, et nous vous préparons une soumission.</p>
     </div>
   </section>
 
@@ -63,75 +63,6 @@
           <p>Plusieurs personnes de l'équipe partagent la même licence et les mêmes données, chacune avec son propre compte et seulement les accès qui la concernent.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="acheter">
-    <div class="container" style="max-width: var(--max-narrow);">
-      <div class="section-head">
-        <span class="eyebrow">Achat en ligne</span>
-        <h2>Acheter en ligne</h2>
-        <p>Vous savez déjà ce qu'il vous faut? Abonnez-vous au forfait Essentiel par carte de crédit : votre clé de licence s'affiche dès la fin du paiement et vous est aussi envoyée par courriel.</p>
-      </div>
-
-      <!-- Affiché tant que VENTE_EN_LIGNE_ACTIVE vaut false dans achat.js (et sans JavaScript). -->
-      <div class="soon-card" id="vente-bientot">
-        <h3>Bientôt disponible</h3>
-        <p>L'achat en ligne ouvrira sous peu. D'ici là, demandez une soumission : nous vous préparons une licence adaptée à votre entreprise.</p>
-        <a class="btn btn-secondary" href="#soumission">Demander une soumission</a>
-      </div>
-
-      <form class="quote-form" id="achat-form" novalidate hidden>
-        <div class="plan-head">
-          <div>
-            <h3>Essentiel</h3>
-            <p>Le logiciel MAA Gestion pour Windows et l'application mobile, avec tout ce qui est inclus dans chaque licence.</p>
-          </div>
-          <div class="plan-price" aria-live="polite">
-            <div id="prix-mois"><span class="amount">[[PRIX MENSUEL]]</span><span class="per">par mois</span></div>
-            <div id="prix-annee" hidden><span class="amount">[[PRIX ANNUEL]]</span><span class="per">par année</span></div>
-          </div>
-        </div>
-
-        <fieldset>
-          <legend>Facturation</legend>
-          <div class="segmented">
-            <label><input type="radio" name="interval" value="mois" checked> Mensuelle</label>
-            <label><input type="radio" name="interval" value="annee"> Annuelle</label>
-          </div>
-        </fieldset>
-
-        <div class="field">
-          <label for="a-seats">Nombre d'utilisateurs</label>
-          <input type="number" id="a-seats" min="1" max="50" step="1" value="1" inputmode="numeric" required>
-          <p class="field-hint">De 1 à 50. Au-delà, <a href="#soumission">demandez une soumission</a>.</p>
-        </div>
-
-        <label class="check">
-          <input type="checkbox" id="a-ia">
-          <span><b>Option IA + cartes</b> Saisie assistée par intelligence artificielle (reçus, notes vocales) et cartes d'itinéraires — <span id="prix-ia-mois">[[PRIX OPTION IA]] par mois</span><span id="prix-ia-annee" hidden>[[PRIX OPTION IA]] par année</span></span>
-        </label>
-
-        <div class="field">
-          <label for="a-email">Courriel du titulaire de la licence</label>
-          <input type="email" id="a-email" autocomplete="email" required>
-          <p class="field-hint">C'est avec ce courriel que vous activerez la licence et vous connecterez au logiciel (compte administrateur).</p>
-        </div>
-
-        <label class="check">
-          <input type="checkbox" id="a-consent" required>
-          <span>J'ai lu et j'accepte les <a href="terms.html" target="_blank" rel="noopener">conditions d'utilisation</a>, la <a href="privacy.html" target="_blank" rel="noopener">politique de confidentialité</a> et le <a href="contrat-licence.html" target="_blank" rel="noopener">contrat de licence</a>.</span>
-        </label>
-
-        <p class="tax-note">Prix avant taxes (TPS et TVQ en sus). Le total exact est affiché sur la page de paiement avant que vous payiez. Vente au Canada seulement.</p>
-
-        <p class="form-error" id="achat-erreur" role="alert" hidden></p>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary btn-lg" id="achat-bouton">Payer avec Stripe</button>
-          <p class="form-hint">Paiement sécurisé par Stripe : nous ne voyons jamais votre numéro de carte. Abonnement annulable en tout temps depuis le logiciel.</p>
-        </div>
-      </form>
     </div>
   </section>
 
@@ -251,6 +182,5 @@
   </div>
 </footer>
 <script src="script.js"></script>
-<script src="achat.js"></script>
 </body>
 </html>

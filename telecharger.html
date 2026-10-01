@@ -67,19 +67,6 @@
     </div>
   </section>
 
-  <section id="verifier" style="padding-top: 0; padding-bottom: 0;">
-    <div class="container" style="max-width: var(--max-narrow);">
-      <div class="info-box">
-        <h3>Vérifier le fichier</h3>
-        <p style="font-size: 14px; color: var(--text-soft);">Pour vous assurer que l'installateur n'a pas été modifié, comparez son empreinte SHA-256 avec celle-ci (version [[VERSION DU SETUP]]) :</p>
-        <code class="code-line hash-value">[[SHA256 DU SETUP]]</code>
-        <p style="font-size: 14px; color: var(--text-soft); margin-top: 12px;">Dans Windows PowerShell, cette commande affiche <strong>True</strong> si le fichier téléchargé est identique :</p>
-        <code class="code-line">(Get-FileHash "$env:USERPROFILE\Downloads\GestionApp-Setup.exe" -Algorithm SHA256).Hash -eq "[[SHA256 DU SETUP]]"</code>
-        <p style="font-size: 13px; color: var(--text-faint); margin-top: 10px;">Si le résultat est <strong>False</strong>, n'exécutez pas le fichier : supprimez-le, téléchargez-le de nouveau depuis cette page et <a href="soutien.html">écrivez-nous</a> si le problème persiste.</p>
-      </div>
-    </div>
-  </section>
-
   <section>
     <div class="container" style="max-width: var(--max-narrow);">
       <div class="section-head">
