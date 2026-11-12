@@ -54,30 +54,36 @@
           </a>
           <a class="btn btn-secondary btn-lg" href="fonctionnalites.html">Voir les fonctionnalités</a>
         </div>
-        <div class="hero-trust">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"/></svg>
-          Conçu et exploité au Québec — vos données ne sont jamais vendues ni utilisées à des fins publicitaires.
-        </div>
+        <ul class="hero-trust">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Conçu et exploité au Québec</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Vos données ne sont jamais vendues ni utilisées à des fins publicitaires</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Synchronisation QuickBooks</li>
+        </ul>
       </div>
 
-      <div class="hero-art">
+      <div class="hero-art" aria-hidden="true">
         <div class="mock">
           <div class="mock-bar">
             <span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span>
+            <span class="mock-title">Tableau de bord</span>
+            <span class="mock-date">jeudi 12 novembre 2026</span>
           </div>
           <div class="mock-grid">
-            <div class="mock-stat"><div class="k">Revenus</div><div class="v">48 210 $</div></div>
-            <div class="mock-stat"><div class="k">Dépenses</div><div class="v">19 640 $</div></div>
-            <div class="mock-stat"><div class="k">Profit</div><div class="v">28 570 $</div></div>
+            <div class="mock-stat"><div class="k">Revenus</div><div class="v">48 210 $</div><div class="t">+8 %</div></div>
+            <div class="mock-stat"><div class="k">Dépenses</div><div class="v">19 640 $</div><div class="t down">+3 %</div></div>
+            <div class="mock-stat"><div class="k">Marge</div><div class="v">28 570 $</div><div class="t">+12 %</div></div>
           </div>
-          <div class="mock-chart" aria-hidden="true">
+          <div class="mock-chart">
             <i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:60%"></i><i style="height:95%"></i><i style="height:70%"></i>
           </div>
-          <div class="mock-rows">
-            <div class="mock-row"><span class="chip" style="background:var(--teal)"></span><span>Véhicules</span><span class="bar"><span style="width:72%"></span></span></div>
-            <div class="mock-row"><span class="chip" style="background:var(--gold)"></span><span>Inventaire</span><span class="bar"><span style="width:45%"></span></span></div>
-            <div class="mock-row"><span class="chip" style="background:var(--plum)"></span><span>Employés</span><span class="bar"><span style="width:58%"></span></span></div>
-          </div>
+        </div>
+        <div class="mock-agenda">
+          <div class="head"><b>Résumé du mois</b><span>jeu. 12 nov.</span></div>
+          <ul>
+            <li><time>08:30</time><i class="terracotta"></i><span>Vidange d’huile — Camion 12</span></li>
+            <li><time>13:00</time><i class="teal"></i><span>Livraison — Atelier Bergeron</span></li>
+            <li><time>16:00</time><i></i><span>Facture F-1042 envoyée</span></li>
+          </ul>
         </div>
         <div class="mock-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-5-5 1.4-1.4L9 15.2l9.6-9.6L20 7z"/></svg>
@@ -118,6 +124,16 @@
       </div>
 
       <div class="feature-grid">
+        <div class="feature-card feature-lead">
+          <div class="feature-icon ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"/></svg></div>
+          <h3>Intégration QuickBooks</h3>
+          <p>Envoi des revenus et dépenses vers QuickBooks, et retour automatique du statut payé.</p>
+          <div class="qb-sync" aria-hidden="true">
+            <div class="route"><span>MAA Gestion</span><i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"/></svg><i></i><span>QuickBooks</span></div>
+            <div class="line"><span><b>Facture F-1042</b><small>Transport Lavoie inc.</small></span><span class="amt">1 380,00 $</span><span class="tag">Payé</span></div>
+            <div class="line"><span><b>Carburant</b><small>Camion 12</small></span><span class="amt">214,56 $</span><span class="tag sent">Envoyé</span></div>
+          </div>
+        </div>
         <div class="feature-card">
           <div class="feature-icon ic-accent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
           <h3>Clients &amp; facturation</h3>
@@ -154,11 +170,6 @@
           <p>Tâches, échéances et entretiens à venir regroupés dans un calendrier partagé par l'équipe.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"/></svg></div>
-          <h3>Intégration QuickBooks</h3>
-          <p>Envoi des revenus et dépenses vers QuickBooks, et retour automatique du statut payé.</p>
-        </div>
-        <div class="feature-card">
           <div class="feature-icon ic-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3"/></svg></div>
           <h3>Décaissement &amp; itinéraires</h3>
           <p>Dépenses générales de l'entreprise et calcul d'itinéraires (distance, temps de trajet).</p>
@@ -169,7 +180,7 @@
 
   <section>
     <div class="container">
-      <div class="section-head center">
+      <div class="section-head">
         <span class="eyebrow">Simple à démarrer</span>
         <h2>Opérationnel en trois étapes</h2>
       </div>
