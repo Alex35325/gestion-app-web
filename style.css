@@ -58,6 +58,26 @@
 
   --max: 1120px;
   --max-narrow: 760px;
+
+  /* Mouvement — seul endroit où se règlent durées et courbes (2026-11-12,
+     demandé explicitement : animations d'interface « légères et
+     professionnelles »). Aucune courbe à rebond : tout s'arrête net.
+     Une sortie dure ~20 % de moins que l'entrée correspondante. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);     /* entrées, réponses à un geste */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);  /* déplacement à l'écran */
+  --dur-press: 120ms;      /* bouton enfoncé */
+  --dur-fast: 150ms;       /* survol, couleurs, bordures */
+  --dur-menu-in: 200ms;    /* menu déroulant : ouverture */
+  --dur-menu-out: 160ms;   /* menu déroulant : fermeture (-20 %) */
+  --dur-icon: 200ms;       /* échange d'icônes (hamburger ↔ fermer) */
+  --dur-state: 240ms;      /* changement d'état d'un bloc (attente → clé prête) */
+  --dur-reveal: 420ms;     /* apparition au défilement */
+  --dur-move: 320ms;       /* pastille de navigation d'une page à l'autre */
+  --dur-page: 200ms;       /* fondu enchaîné entre deux pages */
+  --dur-pulse: 520ms;      /* petite pulsation de confirmation */
+  --stagger: 30ms;         /* décalage entre éléments d'une liste */
+  --reveal-shift: 12px;    /* distance parcourue par une apparition */
+  --pulse-ring: color-mix(in srgb, var(--teal) 35%, transparent);
 }
 
 * { box-sizing: border-box; }
@@ -132,10 +152,9 @@ img, svg { max-width: 100%; display: block; }
   border: 1.5px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
-.btn:active { transform: translateY(1px); }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--teal), var(--accent-dark));
@@ -157,6 +176,10 @@ img, svg { max-width: 100%; display: block; }
   padding: 10px 16px;
 }
 .btn-ghost:hover { color: var(--accent-dark); }
+
+/* Enfoncé : le bouton se tasse légèrement (0,97), réponse immédiate au doigt.
+   Après les variantes pour l'emporter sur le « lève de 1 px » du survol. */
+.btn:active:not(:disabled) { transform: scale(0.97); transition-duration: var(--dur-press); }
 
 .btn-lg { padding: 16px 30px; font-size: 16.5px; }
 .btn-block { width: 100%; }
@@ -219,15 +242,36 @@ nav.main-nav a.nav-link {
   text-decoration: none;
   padding: 8px 14px;
   border-radius: 999px;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 nav.main-nav a.nav-link:hover { color: var(--accent-dark); background: var(--surface-alt); }
 nav.main-nav a.nav-link.is-active { color: var(--accent-dark); background: var(--accent-soft); }
 
 .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
+/* Pastille de la page active, ajoutée par script.js (bureau seulement).
+   D'une page à l'autre, elle glisse de l'ancien lien vers le nouveau grâce
+   aux View Transitions (voir « Mouvement » en fin de fichier) ; sans
+   JavaScript, le fond de .is-active ci-dessus reste en place. */
+.nav-indicator { display: none; }
+@media (min-width: 961px) {
+  nav.main-nav { position: relative; }
+  nav.main-nav a.nav-link { position: relative; z-index: 1; }
+  .nav-indicator {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    pointer-events: none;
+  }
+  nav.main-nav.has-indicator a.nav-link.is-active { background: transparent; }
+}
+
 .nav-toggle {
   display: none;
+  position: relative;
   background: none;
   border: 1.5px solid var(--border);
   border-radius: 10px;
@@ -237,10 +281,34 @@ nav.main-nav a.nav-link.is-active { color: var(--accent-dark); background: var(-
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
+.nav-toggle:active { transform: scale(0.97); transition-duration: var(--dur-press); }
 .nav-toggle svg { width: 20px; height: 20px; }
+/* Hamburger ↔ croix : fondu enchaîné avec un léger changement d'échelle et
+   un flou, pour que l'échange se lise comme une seule icône qui se
+   transforme. L'icône « croix » est ajoutée par script.js. */
+.nav-toggle .icon-burger,
+.nav-toggle .icon-close {
+  transition: opacity var(--dur-icon) var(--ease-out), transform var(--dur-icon) var(--ease-out), filter var(--dur-icon) var(--ease-out);
+}
+.nav-toggle .icon-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  opacity: 0;
+  transform: scale(0.6);
+  filter: blur(2px);
+}
+.nav-toggle[aria-expanded="true"] .icon-burger { opacity: 0; transform: scale(0.6); filter: blur(2px); }
+.nav-toggle[aria-expanded="true"] .icon-close { opacity: 1; transform: none; filter: none; }
 
 @media (max-width: 960px) {
+  /* Menu déroulant : il part du bouton qui l'ouvre (transform-origin réglé
+     par script.js sous le hamburger), grandit de 0,95 à 1 en 200 ms et y
+     retourne en 160 ms. visibility (et non display) garde la transition
+     possible tout en retirant les liens fermés du parcours au clavier. */
   nav.main-nav {
     position: absolute;
     top: 100%;
@@ -253,10 +321,46 @@ nav.main-nav a.nav-link.is-active { color: var(--accent-dark); background: var(-
     align-items: stretch;
     padding: 10px 16px 16px;
     gap: 2px;
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: var(--menu-origin-x, calc(100% - 44px)) 0;
+    pointer-events: none;
+    transition:
+      opacity var(--dur-menu-out) var(--ease-out),
+      transform var(--dur-menu-out) var(--ease-out),
+      visibility 0s linear var(--dur-menu-out);
   }
-  nav.main-nav.is-open { display: flex; }
+  nav.main-nav.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition:
+      opacity var(--dur-menu-in) var(--ease-out),
+      transform var(--dur-menu-in) var(--ease-out),
+      visibility 0s;
+  }
   nav.main-nav a.nav-link { padding: 12px 14px; }
+  /* Les liens arrivent l'un après l'autre (30 ms d'écart) à l'ouverture ;
+     à la fermeture ils partent ensemble avec le panneau. */
+  nav.main-nav a.nav-link {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity var(--dur-menu-out) var(--ease-out), transform var(--dur-menu-out) var(--ease-out), background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  }
+  nav.main-nav.is-open a.nav-link {
+    opacity: 1;
+    transform: none;
+    transition-duration: var(--dur-menu-in), var(--dur-menu-in), var(--dur-fast), var(--dur-fast);
+    transition-delay: calc(var(--i, 0) * var(--stagger)), calc(var(--i, 0) * var(--stagger)), 0s, 0s;
+  }
+  nav.main-nav a.nav-link:nth-child(2) { --i: 1; }
+  nav.main-nav a.nav-link:nth-child(3) { --i: 2; }
+  nav.main-nav a.nav-link:nth-child(4) { --i: 3; }
+  nav.main-nav a.nav-link:nth-child(5) { --i: 4; }
+  nav.main-nav a.nav-link:nth-child(6) { --i: 5; }
   .nav-toggle { display: inline-flex; }
   .header-actions .btn-primary { padding: 10px 18px; font-size: 14px; }
 }
@@ -422,7 +526,7 @@ section[id] { scroll-margin-top: 40px; }
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 22px;
-  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  transition: box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 .feature-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: #D8CBA8; }
 .feature-icon {
@@ -737,7 +841,7 @@ main.legal { max-width: var(--max-narrow); margin: 0 auto; padding: 48px 24px 72
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
   font-size: 13px;
   color: var(--text-soft);
   line-height: 1.4;
@@ -760,7 +864,7 @@ main.legal { max-width: var(--max-narrow); margin: 0 auto; padding: 48px 24px 72
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 11px 13px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
 }
 .field textarea { resize: vertical; min-height: 96px; }
 .field input:focus, .field textarea:focus {
@@ -837,7 +941,7 @@ main.legal { max-width: var(--max-narrow); margin: 0 auto; padding: 48px 24px 72
   font-weight: 700;
   color: var(--text-soft);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 .segmented input {
   position: absolute;
@@ -958,3 +1062,78 @@ main.legal { max-width: var(--max-narrow); margin: 0 auto; padding: 48px 24px 72
   justify-content: center;
 }
 .next-steps b { color: var(--accent-dark); }
+
+/* ---------- Mouvement (2026-11-12) ----------
+   Durées et courbes : jetons --dur-* / --ease-* dans :root. Tout ce bloc est
+   annulé par « prefers-reduced-motion: reduce » (fin de fichier). */
+
+/* Apparition au défilement. Ce n'est PAS le CSS qui cache le contenu :
+   script.js pose .reveal-pending uniquement sur les éléments encore sous la
+   ligne de flottaison. Sans JavaScript, rien n'est jamais masqué. */
+.reveal-pending { opacity: 0; transform: translateY(var(--reveal-shift)); }
+.reveal-in {
+  transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0s);
+}
+@media print { .reveal-pending { opacity: 1; transform: none; } }
+
+/* Changement d'état d'un bloc (pages Merci et Bienvenue : attente → clé
+   prête, formulaire → terminé ; message d'erreur qui apparaît ; numéro de
+   version reçu). Ces blocs passent de [hidden] à visible : l'animation
+   rejoue à chaque fois, sans JavaScript de plus. */
+@keyframes state-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.status-card > [id^="etat-"],
+.status-card > form,
+.form-error,
+.version.is-updated {
+  animation: state-in var(--dur-state) var(--ease-out);
+}
+
+/* Petite pulsation de confirmation : clé de licence affichée, mot de passe
+   enregistré, texte copié, courriel de soumission préparé. Une seule fois,
+   sans rebond. */
+@keyframes pulse-ok {
+  0% { box-shadow: 0 0 0 0 var(--pulse-ring); transform: scale(1); }
+  35% { transform: scale(1.02); }
+  100% { box-shadow: 0 0 0 12px transparent; transform: scale(1); }
+}
+#etat-pret:not([hidden]) .license-box,
+#etat-fini:not([hidden]) .form-success {
+  animation: pulse-ok var(--dur-pulse) var(--ease-out) var(--dur-state) both;
+}
+.pulse-ok { animation: pulse-ok var(--dur-pulse) var(--ease-out); }
+
+/* Navigation d'une page à l'autre (amélioration progressive : navigateurs
+   compatibles seulement, les autres changent de page comme avant). La page
+   fait un fondu enchaîné court et la pastille du lien actif glisse vers le
+   nouveau lien, en s'étirant un peu (12 %) dans le sens du mouvement. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 961px) {
+  .nav-indicator { view-transition-name: nav-indicator; }
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--dur-page);
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-group(nav-indicator) {
+  animation-duration: var(--dur-move);
+  animation-timing-function: var(--ease-in-out);
+}
+::view-transition-image-pair(nav-indicator) {
+  animation: nav-stretch var(--dur-move) var(--ease-in-out);
+}
+@keyframes nav-stretch {
+  50% { transform: scaleX(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal-pending { opacity: 1; transform: none; }
+  .btn:active:not(:disabled), .nav-toggle:active { transform: none; }
+}
