@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ggestionmaa.com/sitemap.xml
+Sitemap: https://www.ggestionmaa.com/sitemap.xml
